@@ -19,6 +19,19 @@ jobs:
     - name: Clone
       shell: bash
       run: git clone --recurse-submodules https://github.com/b1scoito/cozinha_loader
+      
+    - name: Install Blackbone library
+      shell: bash
+      run: |
+        rm -rf ./cozinha_loader/cozinha_loader/cozinha_loader.vcxproj
+        mv ./cozinha_loader.vcxproj ./cozinha_loader/cozinha_loader/cozinha_loader.vcxproj
+        git clone https://github.com/DarthTon/Blackbone
+        mkdir Blackbone/Lib
+        mkdir Blackbone/Lib/Release
+        mv ./Blackbone/src/Blackbone/Include ./Blackbone/Include
+        curl https://github.com/Fanixtar/Blackbone-Builds/releases/download/1.0.0/BlackBone.lib -o ./Blackbone/Lib/Release/BlackBone.lib
+        echo "BLACKBONE=$GITHUB_WORKSPACE/Blackbone/" >> $GITHUB_ENV
+        echo "$GITHUB_WORKSPACE/Blackbone/" >> $GITHUB_PATH
         
     - name: Build solution
       working-directory: ./cozinha_loader
