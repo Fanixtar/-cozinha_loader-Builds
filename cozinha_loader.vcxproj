@@ -48,16 +48,16 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>.\out\debug\</OutDir>
     <IntDir>.\out\debug\obj\</IntDir>
-    <IncludePath>$(Blackbone)Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(Blackbone)Lib\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BLACKBONE)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BLACKBONE)Lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>
     </LinkIncremental>
     <OutDir>.\out\release\</OutDir>
     <IntDir>.\out\release\obj\</IntDir>
-    <LibraryPath>$(Blackbone)Lib\Release;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(Blackbone)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BLACKBONE)Lib\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BLACKBONE)Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg">
     <VcpkgEnabled>false</VcpkgEnabled>
