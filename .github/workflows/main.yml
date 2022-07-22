@@ -12,6 +12,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      
+    - name: Install Windows 10 SDK  
+      uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.6
+      with:
+        sdk-version: 19041
 
     - name: Install MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
@@ -31,6 +36,7 @@ jobs:
         mv ./Blackbone/src/Blackbone/Include ./Blackbone/Include
         curl https://github.com/Fanixtar/Blackbone-Builds/releases/download/1.0.0/BlackBone.lib -o ./Blackbone/Lib/Release/BlackBone.lib
         echo "BLACKBONE=$GITHUB_WORKSPACE/Blackbone/" >> $GITHUB_ENV
+        echo "WinSDKVersion=10.0.19041.0" >> $GITHUB_ENV
         echo "$GITHUB_WORKSPACE/Blackbone/" >> $GITHUB_PATH
         
     - name: Build solution
